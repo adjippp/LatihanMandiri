@@ -1,1 +1,0 @@
-salah satu data set dapat di download di https://www.kaggle.com/mlg-ulb/creditcardfraud
