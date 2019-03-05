@@ -13,19 +13,14 @@ def loadData():
 
 def login(state):
     while state:
-        isi=[""]
-        inputuser=eg.multenterbox('Masukkan Username','Login Form',isi)
-        if(inputuser==None):
+        username=eg.enterbox('Masukkan Username','Login Form')
+        if(username==None):
             sys.exit(0)
-        else:
-            username=''.join(inputuser)
         password=eg.passwordbox('Masukkan Password')         
         if password==None:
             sys.exit(0)
-        print(username)
         for user in tampungUsers:
             if user[0] == username and user[1] == password:
-                print('Anda Berhasil Login')
                 state = False
                 if (eg.msgbox('Anda Berhasil Login') == 'OK'):
                     eg.msgbox('Horee udah masuk')
