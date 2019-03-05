@@ -1,8 +1,8 @@
 import easygui as eg 
 import csv
 import sys
-# eg.egdemo()
 tampungUsers=[]
+#gunakan pip install easygui
 def loadData():
     with open('./LoginUsingCSVandGUI/dataUser.csv','r') as data:
         readFile=csv.reader(data,delimiter=',')
@@ -14,9 +14,12 @@ def loadData():
 def login(state):
     while state:
         username=eg.enterbox('Masukkan Username','Login Form')
-        if(username==None):
-            sys.exit(0)
-        password=eg.passwordbox('Masukkan Password')         
+        while username=='':
+            eg.msgbox('Username Tidak Boleh Kosong','Login Form')
+            username=eg.enterbox('Masukkan Username','Login Form')
+            if(username==None):
+                sys.exit(0)
+        password=eg.passwordbox('Masukkan Password','Login Form')         
         if password==None:
             sys.exit(0)
         for user in tampungUsers:
